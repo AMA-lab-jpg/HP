@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>米粉パン専門店 六志</title>
+<meta name="description" content="お米から生まれた、もちっとやさしい米粉パン。米粉パン専門店「六志」の公式ホームページです。焼き上がり時間・メニュー・アクセスをご案内します。">
+<meta property="og:title" content="米粉パン専門店 六志">
+<meta property="og:description" content="もちっ、ふわっ。お米から生まれたパンの店。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rice:#fbf8f1;      /* 背景：炊きたてのお米 */
+  --paper:#ffffff;
+  --ink:#3a2e26;       /* 文字：焦げ茶 */
+  --sub:#7a6a5c;
+  --crust:#c0843f;     /* パンの焼き色 */
+  --crust-dark:#9a6127;
+  --ine:#7c8c4f;       /* 稲の緑 */
+  --line:#e9dfcf;
+  --shadow:0 10px 30px rgba(90,60,30,.10);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New",system-ui,sans-serif;
+  background:var(--rice);color:var(--ink);line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.mincho{font-family:"Shippori Mincho",serif}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+section{padding:96px 0}
+.eyebrow{font-size:.8rem;letter-spacing:.3em;color:var(--crust-dark);font-weight:700}
+h2{font-family:"Shippori Mincho",serif;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.5;margin:.4em 0 .8em}
+.lead{color:var(--sub);max-width:36em}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;inset:0 0 auto;z-index:50;
+  background:rgba(251,248,241,.88);backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:38px;height:38px;border-radius:50%;background:var(--crust);color:#fff;
+  display:grid;place-items:center;font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.1rem}
+.logo-text{font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.25rem;line-height:1.1}
+.logo-text small{display:block;font-size:.62rem;letter-spacing:.15em;color:var(--sub);font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem}
+.nav ul a{text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--crust);transition:width .25s}
+.nav ul a:hover::after{width:100%}
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto;transition:.3s}
+
+/* ---------- hero ---------- */
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-family:"Shippori Mincho",serif;font-size:clamp(2.2rem,6.4vw,4rem);line-height:1.35;letter-spacing:.04em}
+.hero h1 em{font-style:normal;color:var(--crust-dark)}
+.hero p{margin:24px 0 32px;color:var(--sub);font-size:1.05rem}
+.status{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);
+  padding:8px 16px;border-radius:999px;font-size:.9rem;margin-bottom:28px;box-shadow:var(--shadow)}
+.dot{width:10px;height:10px;border-radius:50%;background:#bbb}
+.dot.open{background:#5fa463;box-shadow:0 0 0 0 rgba(95,164,99,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(95,164,99,0)}100%{box-shadow:0 0 0 0 rgba(95,164,99,0)}}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-primary{background:var(--crust);color:#fff}
+.btn-ghost{border:1.5px solid var(--ink)}
+.hero-art{position:relative;aspect-ratio:1}
+.hero-art .plate{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff 0%,#f3eadb 70%);box-shadow:var(--shadow)}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.grain{position:absolute;width:14px;height:22px;border-radius:50%;background:#fff;border:1px solid var(--line);opacity:.9}
+
+/* ---------- concept ---------- */
+.concept{background:var(--paper)}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.point{padding:32px 28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--rice);position:relative}
+.point .num{font-family:"Shippori Mincho",serif;font-size:2.6rem;color:var(--crust);line-height:1}
+.point h3{font-size:1.15rem;margin:12px 0 8px}
+.point p{color:var(--sub);font-size:.95rem}
+
+/* ---------- bake schedule ---------- */
+.bake-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.timeline{list-style:none;border-left:2px dashed var(--line);padding-left:28px}
+.timeline li{position:relative;padding:14px 0}
+.timeline li::before{content:"";position:absolute;left:-37px;top:24px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--crust)}
+.timeline li.next::before{background:var(--crust)}
+.timeline time{font-family:"Shippori Mincho",serif;font-size:1.5rem;font-weight:700;color:var(--crust-dark);margin-right:14px}
+.timeline .tag{display:inline-block;margin-left:8px;font-size:.72rem;background:var(--crust);color:#fff;padding:2px 10px;border-radius:999px;vertical-align:middle}
+
+/* ---------- menu ---------- */
+.menu{background:var(--paper)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px;margin-top:40px}
+.card{background:var(--rice);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .pic{aspect-ratio:4/3;display:grid;place-items:center;background:linear-gradient(160deg,#f6ecdc,#efe2cc)}
+.card .pic svg{width:62%}
+.card .body{padding:18px 20px 22px}
+.card h3{font-size:1.05rem}
+.card p{font-size:.88rem;color:var(--sub);margin:6px 0 12px;line-height:1.7}
+.card .price{font-family:"Shippori Mincho",serif;font-weight:700;font-size:1.1rem}
+.card .price small{font-size:.75rem;color:var(--sub);font-weight:400}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;color:var(--ine);border:1px solid var(--ine);border-radius:4px;padding:0 6px;margin-bottom:6px}
+.note{font-size:.82rem;color:var(--sub);margin-top:24px}
+
+/* ---------- voice ---------- */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.voice{background:var(--paper);padding:28px;border-radius:var(--radius);box-shadow:var(--shadow);position:relative}
+.voice::before{content:"“";font-family:"Shippori Mincho",serif;font-size:4rem;color:var(--line);position:absolute;top:-10px;left:18px;line-height:1}
+.voice p{position:relative;font-size:.95rem}
+.voice cite{display:block;margin-top:14px;font-style:normal;font-size:.82rem;color:var(--sub)}
+
+/* ---------- access ---------- */
+.access{background:var(--paper)}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+dl.info{display:grid;grid-template-columns:7em 1fr;border-top:1px solid var(--line)}
+dl.info dt,dl.info dd{padding:16px 0;border-bottom:1px solid var(--line)}
+dl.info dt{font-weight:700;color:var(--crust-dark)}
+.map{border-radius:var(--radius);overflow:hidden;min-height:320px;background:repeating-linear-gradient(45deg,#f3ebdd 0 12px,#efe5d4 12px 24px);display:grid;place-items:center;color:var(--sub);text-align:center;border:1px solid var(--line)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0}
+
+/* ---------- cta / footer ---------- */
+.cta{text-align:center;background:var(--crust);color:#fff;padding:80px 0}
+.cta h2{color:#fff;margin-bottom:.4em}
+.cta p{opacity:.9;margin-bottom:28px}
+.cta .btn{background:#fff;color:var(--crust-dark)}
+footer{background:var(--ink);color:#d9cfc3;padding:40px 0;font-size:.85rem;text-align:center}
+footer .logo-text{color:#fff;margin-bottom:8px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  section{padding:72px 0}
+  .hero{padding:110px 0 56px}
+  .hero-grid,.bake-grid,.access-grid{grid-template-columns:1fr}
+  .hero-art{width:100%;max-width:300px;margin:0 auto;order:-1}
+  .hero{padding-top:88px}
+  .points,.voices{grid-template-columns:1fr}
+  .menu-btn{display:block}
+  .nav ul{position:fixed;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--rice);
+    border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s}
+  .nav ul.open{max-height:400px}
+  .nav ul li a{display:block;padding:16px;text-align:center}
+  .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-btn.open span:nth-child(2){opacity:0}
+  .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  dl.info{grid-template-columns:6em 1fr}
+  br.pc{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ====================================================================
+  ★ 差し替えポイント（仮の内容です）
+  - 住所・電話・営業時間・定休日 … 「ACCESS」セクションと下の SHOP 設定
+  - 商品名・価格 … 「MENU」セクション
+  - 焼き上がり時間 … 「BAKE」セクション
+  - 写真 … 各 .pic の <svg> を <img src="images/xxx.jpg" alt="..."> に置き換え
+  - 地図 … .map 内に Googleマップの埋め込み <iframe> を貼り付け
+==================================================================== -->
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="六志 トップへ">
+      <span class="logo-mark">六</span>
+      <span class="logo-text">六志<small>米粉パン専門店</small></span>
+    </a>
+    <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul>
+      <li><a href="#concept">こだわり</a></li>
+      <li><a href="#bake">焼き上がり</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#voice">お客様の声</a></li>
+      <li><a href="#access">アクセス</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="status"><span class="dot" id="statusDot"></span><span id="statusText">営業時間を確認中…</span></div>
+      <h1>もちっ、ふわっ。<br><em>お米</em>から生まれた<br>やさしいパン。</h1>
+      <p>米粉パン専門店「六志」は、国産のお米をていねいに挽いた米粉で、<br class="pc">毎朝ひとつずつパンを焼いています。<br>噛むほどにほんのり甘い、ごはんのようなパンをどうぞ。</p>
+      <div class="btns">
+        <a href="#bake" class="btn btn-primary">今日の焼き上がり時間 →</a>
+        <a href="#access" class="btn btn-ghost">お店への行き方</a>
+      </div>
+    </div>
+    <div class="hero-art reveal" aria-hidden="true">
+      <div class="plate"></div>
+      <svg viewBox="0 0 400 400">
+        <!-- 食パン -->
+        <g transform="translate(70 120)">
+          <path d="M20 90 Q0 30 60 20 Q90 -10 130 20 Q190 30 170 90 L165 180 Q95 195 25 180 Z" fill="#d9a05b"/>
+          <path d="M34 92 Q22 46 66 38 Q92 14 126 38 Q172 46 158 92 L154 168 Q95 180 38 168 Z" fill="#fbf3e2"/>
+          <g fill="#efe0c4"><circle cx="70" cy="80" r="3"/><circle cx="110" cy="100" r="2.5"/><circle cx="90" cy="130" r="3"/><circle cx="125" cy="140" r="2"/><circle cx="62" cy="145" r="2.5"/></g>
+        </g>
+        <!-- 丸パン -->
+        <g transform="translate(225 205)">
+          <ellipse cx="55" cy="60" rx="62" ry="48" fill="#c0843f"/>
+          <ellipse cx="45" cy="44" rx="28" ry="12" fill="#e2b06c" opacity=".7"/>
+          <path d="M20 58 Q55 40 90 58" stroke="#9a6127" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+        <!-- 稲穂 -->
+        <g stroke="#7c8c4f" stroke-width="3" fill="none" stroke-linecap="round" transform="translate(270 60)">
+          <path d="M20 140 Q30 70 60 10"/>
+          <g fill="#e8d28a" stroke="none">
+            <ellipse cx="60" cy="14" rx="5" ry="9" transform="rotate(30 60 14)"/>
+            <ellipse cx="50" cy="30" rx="5" ry="9" transform="rotate(-20 50 30)"/>
+            <ellipse cx="62" cy="38" rx="5" ry="9" transform="rotate(40 62 38)"/>
+            <ellipse cx="43" cy="52" rx="5" ry="9" transform="rotate(-25 43 52)"/>
+            <ellipse cx="55" cy="60" rx="5" ry="9" transform="rotate(35 55 60)"/>
+            <ellipse cx="37" cy="76" rx="5" ry="9" transform="rotate(-25 37 76)"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="wrap">
+    <p class="eyebrow reveal">CONCEPT</p>
+    <h2 class="reveal">六つの志をこめて、<br>毎日食べたくなるパンを。</h2>
+    <p class="lead reveal">店名「六志」には、素材・手仕事・健やかさ・地域・季節・笑顔、六つのことを大切にしたいという想いを込めました。<!-- ※店名の由来は仮の文章です。実際の由来に差し替えてください --></p>
+    <div class="points">
+      <div class="point reveal">
+        <div class="num">01</div>
+        <h3>国産米粉100%の生地</h3>
+        <p>パンの生地には国産米の米粉を使用。お米ならではの、もちっとした弾力とほのかな甘みが特長です。</p>
+      </div>
+      <div class="point reveal">
+        <div class="num">02</div>
+        <h3>毎朝、店内で焼き上げ</h3>
+        <p>米粉パンは焼きたてが一番。少量ずつ何度かに分けて焼くので、一日中あたたかいパンに出会えます。</p>
+      </div>
+      <div class="point reveal">
+        <div class="num">03</div>
+        <h3>小さな子にも、大人にも</h3>
+        <p>素材はできるだけシンプルに。原材料はすべて店頭で表示しています。アレルギーのご相談もお気軽にどうぞ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAKE SCHEDULE -->
+<section id="bake">
+  <div class="wrap bake-grid">
+    <div>
+      <p class="eyebrow reveal">BAKE SCHEDULE</p>
+      <h2 class="reveal">焼きたてに<br>会いに来てください。</h2>
+      <p class="lead reveal">米粉パンは、焼き上がりから数時間がいちばん“もちもち”。<br>時間を合わせて来ていただくと、湯気の立つパンをお渡しできます。</p>
+      <p class="note reveal">※焼き上がり時間は目安です。日によって前後します。</p>
+    </div>
+    <ol class="timeline reveal" id="timeline">
+      <li data-time="08:00"><time>8:00</time>米粉食パン・塩バターロール</li>
+      <li data-time="10:00"><time>10:00</time>あんこもちパン・カレーパン</li>
+      <li data-time="12:00"><time>12:00</time>惣菜パン各種・米粉サンド</li>
+      <li data-time="14:00"><time>14:00</time>米粉食パン（2回目）・季節のパン</li>
+      <li data-time="16:00"><time>16:00</time>米粉ベーグル・焼き菓子</li>
+    </ol>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="eyebrow reveal">MENU</p>
+        <h2 class="reveal">六志の人気パン</h2>
+      </div>
+      <p class="lead reveal" style="max-width:24em">定番から季節限定まで、常時20種類ほどを並べています。</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="pic"><svg viewBox="0 0 120 100"><path d="M14 40 Q6 12 36 10 Q50 -2 70 10 Q112 12 104 40 L102 92 Q60 100 18 92 Z" fill="#d9a05b"/><path d="M22 42 Q16 20 40 18 Q54 8 68 18 Q100 20 96 42 L94 86 Q60 92 26 86 Z" fill="#fbf3e2"/></svg></div>
+        <div class="body"><span class="badge">一番人気</span><h3>六志の米粉食パン</h3><p>しっとりもっちり。トーストすると外はカリッ、中はお餅のよう。</p><div class="price">¥580<small>（税込）</small></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><svg viewBox="0 0 120 100"><ellipse cx="60" cy="58" rx="48" ry="34" fill="#c0843f"/><ellipse cx="50" cy="44" rx="20" ry="8" fill="#e2b06c" opacity=".7"/><circle cx="60" cy="56" r="10" fill="#5a3324"/></svg></div>
+        <div class="body"><span class="badge">定番</span><h3>あんこもちパン</h3><p>北海道産小豆の自家製あんを、もちもち生地でたっぷり包みました。</p><div class="price">¥260<small>（税込）</small></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><svg viewBox="0 0 120 100"><path d="M10 62 Q20 26 60 24 Q100 26 110 62 Q100 80 60 80 Q20 80 10 62Z" fill="#d79a52"/><g fill="#f6e6c3"><circle cx="40" cy="50" r="3"/><circle cx="62" cy="42" r="3"/><circle cx="82" cy="52" r="3"/></g><path d="M20 66 Q60 74 100 66" stroke="#fff6e0" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="body"><span class="badge">定番</span><h3>塩バターロール</h3><p>底がカリッと香ばしい。米粉ならではの軽い食感でぺろりと食べられます。</p><div class="price">¥200<small>（税込）</small></div></div>
+      </article>
+      <article class="card reveal">
+        <div class="pic"><svg viewBox="0 0 120 100"><circle cx="60" cy="54" r="38" fill="#c98b45"/><circle cx="60" cy="54" r="13" fill="#efe2cc"/><path d="M34 40 Q46 30 58 34" stroke="#e7b874" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="body"><span class="badge">季節限定</span><h3>さつまいもベーグル</h3><p>秋冬限定。ごろっと入った焼き芋と米粉生地の、ほっくり甘い組み合わせ。</p><div class="price">¥320<small>（税込）</small></div></div>
+      </article>
+    </div>
+    <p class="note">※価格・商品内容は仮のものです。季節により内容が変わります。</p>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section id="voice">
+  <div class="wrap">
+    <p class="eyebrow reveal">VOICE</p>
+    <h2 class="reveal">お客様の声</h2>
+    <!-- ※実際にいただいた声（掲載許可済み）に差し替えてください -->
+    <div class="voices">
+      <div class="voice reveal"><p>食パンをトーストしたら、外はカリッ、中はもっちり。家族みんなで取り合いになりました。</p><cite>― 30代・ご家族連れ（例文）</cite></div>
+      <div class="voice reveal"><p>10時の焼き上がりに合わせて来ます。あたたかいあんこもちパンは格別です。</p><cite>― 60代・常連のお客様（例文）</cite></div>
+      <div class="voice reveal"><p>原材料をていねいに説明してもらえて、安心して子どもに選べました。</p><cite>― 40代・お子様連れ（例文）</cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="wrap">
+    <p class="eyebrow reveal">ACCESS</p>
+    <h2 class="reveal">店舗情報</h2>
+    <div class="access-grid">
+      <dl class="info reveal">
+        <dt>店名</dt><dd>米粉パン専門店 六志</dd>
+        <dt>住所</dt><dd>〒000-0000<br>○○県○○市○○町 0-0-0（仮）</dd>
+        <dt>営業時間</dt><dd>8:00 〜 18:00<br><small>※売り切れ次第終了</small></dd>
+        <dt>定休日</dt><dd>月曜日・火曜日（仮）</dd>
+        <dt>電話</dt><dd><a href="tel:000-0000-0000">000-0000-0000</a></dd>
+        <dt>駐車場</dt><dd>店舗前に3台（仮）</dd>
+        <dt>お支払い</dt><dd>現金・各種キャッシュレス決済</dd>
+      </dl>
+      <div class="map reveal">
+        <!-- Googleマップ →「共有」→「地図を埋め込む」のiframeをここに貼り付け -->
+        <div>📍<br>ここに地図が入ります<br><small>（Googleマップ埋め込み）</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="reveal">今日はどのパンにしますか？</h2>
+    <p class="reveal">最新の焼き上がり情報・季節限定パンはInstagramでお知らせしています。</p>
+    <a href="#" class="btn reveal" aria-label="Instagram（URLを設定してください）">Instagramを見る →</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo-text">六志</div>
+  <p>米粉パン専門店 六志</p>
+  <p style="margin-top:12px;opacity:.7">© <span id="year"></span> 六志 All Rights Reserved.</p>
+</footer>
+
+<script>
+/* ===== 店舗設定（ここを書き換えると営業中表示が変わります） ===== */
+const SHOP = {
+  open: "08:00",
+  close: "18:00",
+  closedDays: [1, 2]  // 0=日 1=月 2=火 3=水 4=木 5=金 6=土
+};
+
+const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+const now = new Date();
+const mins = now.getHours() * 60 + now.getMinutes();
+const today = now.getDay();
+
+// 営業中バッジ
+(() => {
+  const dot = document.getElementById("statusDot");
+  const txt = document.getElementById("statusText");
+  const closedToday = SHOP.closedDays.includes(today);
+  if (!closedToday && mins >= toMin(SHOP.open) && mins < toMin(SHOP.close)) {
+    dot.classList.add("open");
+    txt.textContent = `ただいま営業中（${SHOP.close.replace(/^0/, "")}まで）`;
+  } else if (closedToday) {
+    txt.textContent = "本日は定休日です";
+  } else if (mins < toMin(SHOP.open)) {
+    txt.textContent = `本日は${SHOP.open.replace(/^0/, "")}オープンです`;
+  } else {
+    txt.textContent = "本日の営業は終了しました";
+  }
+})();
+
+// 次の焼き上がりをハイライト
+(() => {
+  if (SHOP.closedDays.includes(today)) return;
+  const items = [...document.querySelectorAll("#timeline li")];
+  const next = items.find(li => toMin(li.dataset.time) >= mins - 30);
+  if (next) {
+    next.classList.add("next");
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = toMin(next.dataset.time) <= mins ? "焼きたて" : "次の焼き上がり";
+    next.appendChild(tag);
+  }
+})();
+
+// ハンバーガーメニュー
+const btn = document.querySelector(".menu-btn");
+const navList = document.querySelector(".nav ul");
+btn.addEventListener("click", () => {
+  const open = navList.classList.toggle("open");
+  btn.classList.toggle("open", open);
+  btn.setAttribute("aria-expanded", open);
+});
+navList.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  navList.classList.remove("open"); btn.classList.remove("open"); btn.setAttribute("aria-expanded", false);
+}));
+
+// ヘッダーの線
+const header = document.querySelector("header");
+addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 10), { passive: true });
+
+// スクロールでふわっと表示
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+document.getElementById("year").textContent = now.getFullYear();
+</script>
+</body>
+</html>
